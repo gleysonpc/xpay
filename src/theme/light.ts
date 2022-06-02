@@ -1,14 +1,22 @@
 export default {
-    COLORS: {
-        BACKGROUND: "#FFF",
+  COLORS: {
+    BACKGROUND: '#EEEEEE',
+    MAIN: '#D03530',
+    TEXT_DARK: '#000',
+    TEXT_LIGHT: '#828282',
+    FOREGROUND: '#FFF',
 
-        PRIMARY_900: "#272A37",
-        PRIMARY_800: "#323644",
-        PRIMARY_700: "#8F94A3",
+    SUCCESS: '#4DA706',
+    WARNING: '#E79902',
+    INFO: '#02BDE7',
+  },
 
-        INFO: "#1D90F5",
-
-        TEXT_PRIMARY: "#FFF",
-        TEXT_SECONDARY: "#080808",
-    }
-}
+  SIZES: {
+    TITLES: 16,
+    SUBTITLES: 13,
+    RADIUS: 30,
+    BUTTON_HEIGHT: 47,
+    BUTTON_FONT_SIZE: 15,
+    INPUT_PADDING: 10,
+  },
+};

@@ -8,13 +8,13 @@ import Routes from './routes';
 import {AuthProvider} from './contexts/auth';
 
 export default function App() {
-  return (
-    <NavigationContainer>
-      <AuthProvider>
-        <ThemeProvider theme={light}>
-          <Routes />
-        </ThemeProvider>
-      </AuthProvider>
-    </NavigationContainer>
-  );
+    return (
+        <NavigationContainer>
+            <ThemeProvider theme={light}>
+                <AuthProvider>
+                    <Routes />
+                </AuthProvider>
+            </ThemeProvider>
+        </NavigationContainer>
+    );
 }

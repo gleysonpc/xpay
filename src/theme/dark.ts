@@ -1,14 +1,18 @@
 export default {
-    COLORS: {
-        BACKGROUND: "#000",
+  COLORS: {
+    BACKGROUND: '#EEEEEE',
+    MAIN: '#D03530',
+    TEXT_DARK: '#000',
+    TEXT_LIGHT: '#828282',
+    FOREGROUND: '#FFF',
 
-        PRIMARY_900: "#272A37",
-        PRIMARY_800: "#323644",
-        PRIMARY_700: "#8F94A3",
+    SUCCESS: '#4DA706',
+    WARNING: '#E79902',
+    INFO: '#02BDE7',
+  },
 
-        INFO: "#FF9000",
-
-        TEXT_PRIMARY: "#FFF",
-        TEXT_SECONDARY: "#FFF",
-    }
-}
+  SIZES: {
+    BORDER_RADIUS: 30,
+    HEIGHT: 47,
+  },
+};
