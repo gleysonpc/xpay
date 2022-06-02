@@ -19,7 +19,6 @@ const SignIn: React.FC = () => {
   async function handleSignIn() {
     await signIn();
   }
-
   return (
     <Container behavior="height">
       <LoginForm>
