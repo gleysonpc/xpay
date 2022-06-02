@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
 
+interface PaddingVerticalProps {
+  height: number;
+}
+
 export const Container = styled.KeyboardAvoidingView`
   flex: 1;
   justify-content: center;
@@ -10,9 +14,9 @@ export const Container = styled.KeyboardAvoidingView`
 export const LoginForm = styled.View`
   background-color: ${({theme}) => theme.COLORS.FOREGROUND};
   width: 90%;
-  height: 40%;
+  height: 300px;
   border-radius: ${({theme}) => theme.SIZES.RADIUS}px;
-  padding: 34px 24px;
+  padding: 24px;
   justify-content: space-evenly;
 `;
 
@@ -22,7 +26,6 @@ export const FormHeader = styled.View`
 
 export const FormBody = styled.View`
   flex: 1;
-  margin-bottom: 20px;
   justify-content: space-evenly;
 `;
 
@@ -37,4 +40,8 @@ export const FormSubTitle = styled.Text`
   font-size: ${({theme}) => theme.SIZES.SUBTITLES}px;
   color: ${({theme}) => theme.COLORS.TEXT_LIGHT};
   margin-bottom: 20px;
+`;
+
+export const PaddingVertical = styled.View<PaddingVerticalProps>`
+  height: ${({height}) => height}px;
 `;

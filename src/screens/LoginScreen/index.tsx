@@ -6,6 +6,7 @@ import {
   FormSubTitle,
   FormTitle,
   LoginForm,
+  PaddingVertical,
 } from './styles';
 
 import {useAuth} from '../../contexts/auth';
@@ -20,7 +21,7 @@ const SignIn: React.FC = () => {
   }
 
   return (
-    <Container>
+    <Container behavior="height">
       <LoginForm>
         <FormHeader>
           <FormTitle>Faça seu login</FormTitle>
@@ -28,8 +29,10 @@ const SignIn: React.FC = () => {
         </FormHeader>
         <FormBody>
           <AppInput label="E-MAIL" keyboardType="email-address" />
+          <PaddingVertical height={14} />
           <AppInput label="SENHA" secureTextEntry />
         </FormBody>
+        <PaddingVertical height={15} />
         <AppButton onPress={handleSignIn} title="Entrar" />
       </LoginForm>
     </Container>
