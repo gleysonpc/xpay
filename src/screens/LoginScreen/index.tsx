@@ -9,8 +9,8 @@ import {
 } from './styles';
 
 import {useAuth} from '../../contexts/auth';
-import AppButton from '../../components/AppButton';
-import AppInput from '../../components/AppInput';
+import AppButton from '@components/AppButton';
+import AppInput from '@components/AppInput';
 
 const SignIn: React.FC = () => {
   const {signIn} = useAuth();
