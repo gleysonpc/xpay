@@ -12,6 +12,7 @@ export default {
   },
 
   SIZES: {
+    HEADING: 24,
     TITLES: 16,
     SUBTITLES: 13,
     RADIUS: 30,
