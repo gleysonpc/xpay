@@ -15,4 +15,11 @@ export const Title = styled.Text`
 export const Subtitle = styled.Text`
   font-size: ${({theme}) => theme.SIZES.SUBTITLES}px;
   font-weight: bold;
+  margin-bottom: 20px;
+`;
+
+export const Footer = styled.Text`
+  font-size: ${({theme}) => theme.SIZES.SUBTITLES}px;
+  font-weight: bold;
+  margin-bottom: 7px;
 `;

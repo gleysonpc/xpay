@@ -3,6 +3,9 @@ import styled from 'styled-components/native';
 interface cardArrowContainerProps {
   type: 'SUCCESS' | 'INFO' | 'WARNING';
 }
+interface CardContainerProps {
+  size: 'large' | 'small';
+}
 
 export const DropShadow = styled.Text`
   shadow-color: #000;
@@ -13,10 +16,10 @@ export const DropShadow = styled.Text`
   margin: 10px 0;
 `;
 
-export const CardContainer = styled.TouchableOpacity`
+export const CardContainer = styled.TouchableOpacity<CardContainerProps>`
   border-radius: ${({theme}) => theme.SIZES.RADIUS}px;
   background-color: ${({theme}) => theme.COLORS.FOREGROUND};
-  height: 130px;
+  height: ${({size}) => (size === 'large' ? '130px' : '80px')};
   width: 100%;
   justify-content: center;
   flex-direction: row;
@@ -29,10 +32,25 @@ export const CardIconContainer = styled.View`
   margin-left: 20px;
 `;
 
-export const CardBody = styled.View`
+export const CardBodyLarge = styled.View`
   flex: 1;
   padding: 10px 15px;
-  justify-content: space-evenly;
+  justify-content: space-between;
+`;
+
+export const CardBodySmall = styled.View`
+  flex: 1;
+  padding: 18px;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const CardLeft = styled.View`
+  justify-content: space-between;
+`;
+
+export const CardRight = styled.View`
+  justify-content: space-between;
 `;
 
 export const CardArrowContainer = styled.View<cardArrowContainerProps>`

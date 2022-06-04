@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, CardsContainer, ActiveBalanceText} from './styles';
+import {Container, CardsContainer} from './styles';
 import ScreenHeader from '@components/ScreenHeader';
 import CardBalance from '@components/BalanceCard';
 import {Image} from 'react-native';
@@ -14,15 +14,16 @@ export default function HomeScreen() {
       <ScreenHeader
         title="Olá, Gleyson!"
         subtitle="Confira seu balanço mensal ativo."
+        footer="Março de 2022"
       />
       <CardsContainer>
-        <ActiveBalanceText>Março de 2022</ActiveBalanceText>
         <CardBalance
           cardImage={<Image source={income} />}
           cardTitle="Entradas"
           cardSubtitle="Total de valores recebidos"
           cardPrice={7000}
           cardType="SUCCESS"
+          cardSize="large"
         />
         <CardBalance
           cardImage={<Image source={outcome} />}
@@ -30,13 +31,15 @@ export default function HomeScreen() {
           cardSubtitle="Total de valores gastos"
           cardPrice={3000}
           cardType="WARNING"
+          cardSize="large"
         />
         <CardBalance
           cardImage={<Image source={remaining} />}
           cardTitle="Entradas"
-          cardSubtitle="Total de valores gastos"
+          cardSubtitle="Total Restante"
           cardPrice={4000}
           cardType="INFO"
+          cardSize="large"
         />
       </CardsContainer>
     </Container>
