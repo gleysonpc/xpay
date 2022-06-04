@@ -19,5 +19,6 @@ export default {
     BUTTON_HEIGHT: 47,
     BUTTON_FONT_SIZE: 15,
     INPUT_PADDING: 10,
+    SCREEN_PADDING: '0 15px',
   },
 };
