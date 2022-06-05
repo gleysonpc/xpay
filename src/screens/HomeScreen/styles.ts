@@ -11,3 +11,8 @@ export const CardsContainer = styled.View`
   align-items: center;
   justify-content: center;
 `;
+
+export const CardImage = styled.Image`
+  height: 50px;
+  width: 50px;
+`;

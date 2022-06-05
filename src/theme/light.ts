@@ -1,3 +1,5 @@
+import {scale} from 'react-native-size-matters';
+
 export default {
   COLORS: {
     BACKGROUND: '#EEEEEE',
@@ -12,13 +14,13 @@ export default {
   },
 
   SIZES: {
-    HEADING: 24,
-    TITLES: 16,
-    SUBTITLES: 13,
+    HEADING: Math.floor(scale(20)),
+    TITLES: Math.floor(scale(15)),
+    SUBTITLES: Math.floor(scale(12)),
     RADIUS: 30,
-    BUTTON_HEIGHT: 47,
-    BUTTON_FONT_SIZE: 15,
+    BUTTON_HEIGHT: Math.floor(scale(45)),
+    BUTTON_FONT_SIZE: Math.floor(scale(14)),
     INPUT_PADDING: 10,
-    SCREEN_PADDING: '0 15px',
+    SCREEN_PADDING: `0 ${Math.floor(scale(10))}px`,
   },
 };

@@ -1,4 +1,6 @@
 import styled from 'styled-components/native';
+import {moderateScale, verticalScale} from 'react-native-size-matters';
+import {Dimensions} from 'react-native';
 
 export const dropShadowStyles = {
   shadowColor: '#000',
@@ -8,10 +10,8 @@ export const dropShadowStyles = {
   },
   shadowOpacity: 0.18,
   shadowRadius: 1,
-  marginVertical: 8,
+  marginVertical: Math.floor(moderateScale(7)),
 };
-
-import {Dimensions} from 'react-native';
 
 const {width} = Dimensions.get('window');
 
@@ -25,8 +25,9 @@ interface CardContainerProps {
 export const CardContainer = styled.TouchableOpacity<CardContainerProps>`
   border-radius: ${({theme}) => theme.SIZES.RADIUS}px;
   background-color: ${({theme}) => theme.COLORS.FOREGROUND};
-  height: ${({size}) => (size === 'large' ? '130px' : '80px')};
-  width: ${Math.floor(width) - 40}px;
+  height: ${({size}) =>
+    size === 'large' ? verticalScale(100) : verticalScale(75)}px;
+  width: ${Math.floor(width) - 20}px;
   justify-content: center;
   flex-direction: row;
   overflow: hidden;
@@ -35,18 +36,18 @@ export const CardContainer = styled.TouchableOpacity<CardContainerProps>`
 export const CardIconContainer = styled.View`
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
+  margin-left: ${Math.floor(moderateScale(15))}px;
 `;
 
 export const CardBodyLarge = styled.View`
   flex: 1;
-  padding: 10px 15px;
+  padding: ${Math.floor(moderateScale(10))}px;
   justify-content: space-between;
 `;
 
 export const CardBodySmall = styled.View`
   flex: 1;
-  padding: 18px;
+  padding: ${Math.floor(moderateScale(10))}px;
   flex-direction: row;
   justify-content: space-between;
 `;

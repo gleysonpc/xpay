@@ -1,8 +1,7 @@
 import React from 'react';
-import {Container, CardsContainer} from './styles';
+import {Container, CardsContainer, CardImage} from './styles';
 import ScreenHeader from '@components/ScreenHeader';
 import CardBalance from '@components/BalanceCard';
-import {Image} from 'react-native';
 
 import income from '@assets/income.png';
 import outcome from '@assets/outcome.png';
@@ -18,7 +17,7 @@ export default function HomeScreen() {
       />
       <CardsContainer>
         <CardBalance
-          cardImage={<Image source={income} />}
+          cardImage={<CardImage source={income} />}
           cardTitle="Entradas"
           cardSubtitle="Total de valores recebidos"
           cardPrice={7000}
@@ -26,7 +25,7 @@ export default function HomeScreen() {
           cardSize="large"
         />
         <CardBalance
-          cardImage={<Image source={outcome} />}
+          cardImage={<CardImage source={outcome} />}
           cardTitle="Saídas"
           cardSubtitle="Total de valores gastos"
           cardPrice={3000}
@@ -34,7 +33,7 @@ export default function HomeScreen() {
           cardSize="large"
         />
         <CardBalance
-          cardImage={<Image source={remaining} />}
+          cardImage={<CardImage source={remaining} />}
           cardTitle="Entradas"
           cardSubtitle="Total Restante"
           cardPrice={4000}
