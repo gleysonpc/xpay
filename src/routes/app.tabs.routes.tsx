@@ -1,20 +1,36 @@
 import React, {useContext} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-// import Profile from '../screens/ProfileScreen';
-import HomeScreen from '../screens/HomeScreen';
-import BalancesScreen from '../screens/BalancesScreen';
-import Settings from '../screens/SettingsScreen';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ThemeContext} from 'styled-components';
+// screens
+import HomeScreen from '@screens/HomeScreen';
+import BalancesScreen from '@screens/BalancesScreen';
+import EarningsScreen from '@screens/EarningsScreen';
+import SettingsScreen from '@screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 
-const tabLabels = {
-  HOME: {name: 'home', label: 'Home'},
-  BALANCES: {name: 'balances', label: 'Balanços'},
-  SETTINGS: {name: 'settings', label: 'Ajustes'},
-  PROFILE: {name: 'profile', label: 'Perfil'},
-};
+const tabs = [
+  {name: 'home', label: 'Home', icon: 'home', component: HomeScreen},
+  {
+    name: 'balances',
+    label: 'Balanços',
+    icon: 'file-document',
+    component: BalancesScreen,
+  },
+  {
+    name: 'earnings',
+    label: 'Ganhos',
+    icon: 'cash-plus',
+    component: EarningsScreen,
+  },
+  {
+    name: 'settings',
+    label: 'Ajustes',
+    icon: 'cog',
+    component: SettingsScreen,
+  },
+];
 
 export default function AppTabs() {
   const theme = useContext(ThemeContext);
@@ -25,53 +41,24 @@ export default function AppTabs() {
         tabBarInactiveTintColor: theme.COLORS.TEXT_LIGHT,
         tabBarLabelStyle: {fontSize: theme.SIZES.SUBTITLES, fontWeight: 'bold'},
       }}>
-      <Tab.Screen
-        name={tabLabels.HOME.name}
-        component={HomeScreen}
-        options={{
-          headerTitle: tabLabels.HOME.label,
-          tabBarLabel: tabLabels.HOME.label,
-          tabBarIcon: ({focused}) => (
-            <Icon
-              color={focused ? theme.COLORS.MAIN : theme.COLORS.TEXT_LIGHT}
-              name="user"
-              size={25}
-            />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name={tabLabels.BALANCES.name}
-        component={BalancesScreen}
-        options={{
-          headerTitle: tabLabels.BALANCES.label,
-          tabBarLabel: tabLabels.BALANCES.label,
-          tabBarIcon: ({focused}) => (
-            <Icon
-              color={focused ? theme.COLORS.MAIN : theme.COLORS.TEXT_LIGHT}
-              name="file-text"
-              size={25}
-            />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name={tabLabels.SETTINGS.name}
-        component={Settings}
-        options={{
-          headerTitle: tabLabels.SETTINGS.label,
-          tabBarLabel: tabLabels.SETTINGS.label,
-          tabBarIcon: ({focused}) => (
-            <Icon
-              color={focused ? theme.COLORS.MAIN : theme.COLORS.TEXT_LIGHT}
-              name="settings"
-              size={25}
-            />
-          ),
-        }}
-      />
+      {tabs.map(tab => (
+        <Tab.Screen
+          key={tab.name}
+          name={tab.name}
+          component={tab.component}
+          options={{
+            headerTitle: tab.label,
+            tabBarLabel: tab.label,
+            tabBarIcon: ({focused}) => (
+              <Icon
+                color={focused ? theme.COLORS.MAIN : theme.COLORS.TEXT_LIGHT}
+                name={tab.icon}
+                size={25}
+              />
+            ),
+          }}
+        />
+      ))}
     </Tab.Navigator>
   );
 }
