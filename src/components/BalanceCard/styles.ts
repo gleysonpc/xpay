@@ -1,5 +1,20 @@
 import styled from 'styled-components/native';
 
+export const dropShadowStyles = {
+  shadowColor: '#000',
+  shadowOffset: {
+    width: 0,
+    height: 1,
+  },
+  shadowOpacity: 0.18,
+  shadowRadius: 1,
+  marginVertical: 8,
+};
+
+import {Dimensions} from 'react-native';
+
+const {width} = Dimensions.get('window');
+
 interface cardArrowContainerProps {
   type: 'SUCCESS' | 'INFO' | 'WARNING';
 }
@@ -7,20 +22,11 @@ interface CardContainerProps {
   size: 'large' | 'small';
 }
 
-export const DropShadow = styled.Text`
-  shadow-color: #000;
-  shadow-offset: 0px 1px;
-  shadow-opacity: 0.18;
-  shadow-radius: 1px;
-  elevation: 1;
-  margin: 10px 0;
-`;
-
 export const CardContainer = styled.TouchableOpacity<CardContainerProps>`
   border-radius: ${({theme}) => theme.SIZES.RADIUS}px;
   background-color: ${({theme}) => theme.COLORS.FOREGROUND};
   height: ${({size}) => (size === 'large' ? '130px' : '80px')};
-  width: 100%;
+  width: ${Math.floor(width) - 40}px;
   justify-content: center;
   flex-direction: row;
   overflow: hidden;
