@@ -5,9 +5,3 @@ export const Container = styled.View`
   background-color: ${({theme}) => theme.COLORS.FOREGROUND};
   padding: ${({theme}) => theme.SIZES.SCREEN_PADDING};
 `;
-
-export const CardsContainer = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-`;

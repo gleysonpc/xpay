@@ -1,8 +1,7 @@
 import React from 'react';
-import {Container, CardsContainer} from './styles';
+import {Container} from './styles';
 import ScreenHeader from '@components/ScreenHeader';
-import CardBalance from '@components/BalanceCard';
-import {ScrollView} from 'react-native';
+import BalancesList from '@components/BalancesList';
 
 const fakeBalances = [
   {title: 'Março de 2022', active: true, total: 7000},
@@ -23,20 +22,7 @@ export default function BalancesScreen() {
         subtitle="Organize aqui seus balanços financeiros."
         footer="Histórico de balanços"
       />
-      <CardsContainer>
-        <ScrollView>
-          {fakeBalances.map(balance => (
-            <CardBalance
-              key={balance.title}
-              cardTitle={balance.title}
-              cardSubtitle="Em caixa:"
-              cardPrice={balance.total}
-              cardActive={balance.active}
-              cardType={balance.active ? 'SUCCESS' : 'INFO'}
-            />
-          ))}
-        </ScrollView>
-      </CardsContainer>
+      <BalancesList data={fakeBalances} />
     </Container>
   );
 }
