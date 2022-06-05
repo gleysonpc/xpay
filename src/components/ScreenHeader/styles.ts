@@ -15,8 +15,8 @@ export const Title = styled.Text`
 
 export const Subtitle = styled.Text`
   font-size: ${({theme}) => theme.SIZES.SUBTITLES}px;
-  font-weight: bold;
   margin-bottom: ${Math.floor(moderateScale(7))}px;
+  font-weight: bold;
 `;
 
 export const Footer = styled.Text`

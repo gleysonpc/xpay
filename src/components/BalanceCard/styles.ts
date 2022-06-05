@@ -2,6 +2,10 @@ import styled from 'styled-components/native';
 import {moderateScale, verticalScale} from 'react-native-size-matters';
 import {Dimensions} from 'react-native';
 
+interface SubtitleProps {
+  italic?: boolean;
+}
+
 export const dropShadowStyles = {
   shadowColor: '#000',
   shadowOffset: {
@@ -72,10 +76,10 @@ export const CartTitle = styled.Text`
   font-size: ${({theme}) => theme.SIZES.TITLES}px;
 `;
 
-export const CartSubtitle = styled.Text`
+export const CartSubtitle = styled.Text<SubtitleProps>`
   color: ${({theme}) => theme.COLORS.TEXT_LIGHT};
   font-size: ${({theme}) => theme.SIZES.SUBTITLES}px;
-  font-style: italic;
+  font-style: ${({italic}) => (italic ? 'italic' : 'normal')};
 `;
 
 export const CartPrice = styled.Text`

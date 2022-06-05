@@ -53,7 +53,11 @@ export default function CardBalance({
                 <CartSubtitle>{cardSubtitle}</CartSubtitle>
               </CardLeft>
               <CardRight>
-                {cardActive ? <CartSubtitle>Ativa</CartSubtitle> : <Text />}
+                {cardActive ? (
+                  <CartSubtitle italic>Ativa</CartSubtitle>
+                ) : (
+                  <Text />
+                )}
                 <CartPrice>{cardPrice}</CartPrice>
               </CardRight>
             </CardBodySmall>
