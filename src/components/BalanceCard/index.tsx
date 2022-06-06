@@ -10,11 +10,11 @@ import {
   CartPrice,
   CardLeft,
   CardRight,
-  dropShadowStyles,
 } from './styles';
 import Icon from 'react-native-vector-icons/Feather';
-import DropShadow from 'react-native-drop-shadow';
+
 import {Text} from 'react-native';
+import DropShadow from '@components/DropShadow';
 
 interface Props {
   cardImage?: JSX.Element;
@@ -36,7 +36,7 @@ export default function CardBalance({
   cardActive = false,
 }: Props) {
   return (
-    <DropShadow style={dropShadowStyles}>
+    <DropShadow>
       <CardContainer size={cardSize}>
         <CardIconContainer>{cardImage}</CardIconContainer>
         {cardSize === 'large' ? (

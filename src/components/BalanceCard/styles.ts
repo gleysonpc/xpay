@@ -6,17 +6,6 @@ interface SubtitleProps {
   italic?: boolean;
 }
 
-export const dropShadowStyles = {
-  shadowColor: '#000',
-  shadowOffset: {
-    width: 0,
-    height: 1,
-  },
-  shadowOpacity: 0.18,
-  shadowRadius: 1,
-  marginVertical: Math.floor(moderateScale(7)),
-};
-
 const {width} = Dimensions.get('window');
 
 interface cardArrowContainerProps {
