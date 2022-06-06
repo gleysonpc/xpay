@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeScreen from '@screens/HomeScreen';
 import BalancesScreen from '@screens/BalancesScreen';
 import EarningsScreen from '@screens/EarningsScreen';
+import ExpensesScreen from '@screens/ExpensesScreen';
 import SettingsScreen from '@screens/SettingsScreen';
 import {useAppTheme} from '../contexts/theme';
 
@@ -23,6 +24,12 @@ const tabs = [
     label: 'Ganhos',
     icon: 'cash-plus',
     component: EarningsScreen,
+  },
+  {
+    name: 'expenses',
+    label: 'Gastos',
+    icon: 'cash-remove',
+    component: ExpensesScreen,
   },
   {
     name: 'settings',

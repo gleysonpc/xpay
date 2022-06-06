@@ -4,6 +4,10 @@ import {scale} from 'react-native-size-matters';
 
 const {width} = Dimensions.get('window');
 
+interface CircleProps {
+  type: 'earnings' | 'expenses' | undefined;
+}
+
 export const AccordionHeader = styled.View`
   height: ${({theme}) => theme.SIZES.BUTTON_HEIGHT}px;
   border-radius: 15px;
@@ -33,9 +37,10 @@ export const AccordionContentCard = styled.View`
   padding: 0 15px;
 `;
 
-export const Circle = styled.View`
+export const Circle = styled.View<CircleProps>`
   border-radius: 50px;
   height: ${scale(10)}px;
   width: ${scale(10)}px;
-  background-color: ${({theme}) => theme.COLORS.SUCCESS};
+  background-color: ${({theme, type}) =>
+    type === 'expenses' ? theme.COLORS.MAIN : theme.COLORS.SUCCESS};
 `;

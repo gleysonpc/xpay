@@ -20,10 +20,12 @@ interface Section {
   title: string;
   content: Earning[];
   active: boolean;
+  type?: 'earnings' | 'expenses';
 }
 
 interface EntriesListProps {
   data: any;
+  type: 'earnings' | 'expenses';
 }
 
 function RenderHeader(section: Section) {
@@ -42,12 +44,12 @@ function RenderHeader(section: Section) {
   );
 }
 
-function renderContent(section: Section) {
+function RenderContent(section: Section) {
   return (
     <View>
       {section.content.map(earning => (
         <AccordionContent key={earning.id}>
-          <Circle />
+          <Circle type={section.type} />
           <DropShadow>
             <AccordionContentCard>
               <Text>{earning.description}</Text>
@@ -60,7 +62,7 @@ function renderContent(section: Section) {
   );
 }
 
-export function EntriesList({data}: EntriesListProps) {
+export function EntriesList({data, type}: EntriesListProps) {
   const [activeSections, setActiveSections] = useState<number[]>([0]);
 
   function updateSections(activeSectionsValues: number[]) {
@@ -75,8 +77,10 @@ export function EntriesList({data}: EntriesListProps) {
         active: index === activeSections[0],
       }))}
       activeSections={activeSections}
-      renderHeader={section => <RenderHeader {...section} />}
-      renderContent={renderContent}
+      renderHeader={(section: Section) => <RenderHeader {...section} />}
+      renderContent={(section: Section) => (
+        <RenderContent {...section} type={type} />
+      )}
       onChange={updateSections}
       touchableComponent={TouchableOpacity}
       renderAsFlatList
