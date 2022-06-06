@@ -1,12 +1,12 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {ThemeContext} from 'styled-components';
 // screens
 import HomeScreen from '@screens/HomeScreen';
 import BalancesScreen from '@screens/BalancesScreen';
 import EarningsScreen from '@screens/EarningsScreen';
 import SettingsScreen from '@screens/SettingsScreen';
+import {useAppTheme} from '../contexts/theme';
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +33,7 @@ const tabs = [
 ];
 
 export default function AppTabs() {
-  const theme = useContext(ThemeContext);
+  const theme = useAppTheme();
   return (
     <Tab.Navigator
       screenOptions={{

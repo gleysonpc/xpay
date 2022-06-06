@@ -9,6 +9,7 @@ import {
   AccordionHeader,
   Circle,
 } from './styles';
+import {useAppTheme} from '../../contexts/theme';
 
 interface Earning {
   id: string;
@@ -25,14 +26,15 @@ interface EntriesListProps {
   data: any;
 }
 
-function renderHeader(section: Section) {
+function RenderHeader(section: Section) {
+  const theme = useAppTheme();
   return (
     <DropShadow>
       <AccordionHeader>
         <Text>{section.title} </Text>
         <Icon
           name={section.active ? 'chevron-up' : 'chevron-down'}
-          color={'red'}
+          color={theme.COLORS.MAIN}
           size={25}
         />
       </AccordionHeader>
@@ -64,6 +66,7 @@ export function EntriesList({data}: EntriesListProps) {
   function updateSections(activeSectionsValues: number[]) {
     setActiveSections(activeSectionsValues);
   }
+
   return (
     <Accordion
       sections={data.map((item: any, index: number) => ({
@@ -72,7 +75,7 @@ export function EntriesList({data}: EntriesListProps) {
         active: index === activeSections[0],
       }))}
       activeSections={activeSections}
-      renderHeader={renderHeader}
+      renderHeader={section => <RenderHeader {...section} />}
       renderContent={renderContent}
       onChange={updateSections}
       touchableComponent={TouchableOpacity}
